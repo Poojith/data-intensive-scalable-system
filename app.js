@@ -144,12 +144,10 @@ app.post('/registerUser', function (req, res) {
                 "message": "The input you provided is not valid"
             };
             console.log("Attempt to create duplicate record for " + username);
-            console.log("ERROR THIS : "  + err.message);
             res.send(response);
             return;
         }
 
-        console.log(queryCreateCustomer);
         var user = module.exports = function () {
             this.fname = firstName;
             this.lname = lastName;
@@ -606,10 +604,7 @@ app.post('/viewUsers', function (req, res) {
         } else {
             sql = 'SELECT * FROM users;';
         }
-        //
-        // console.log(conditions);
-        // console.log(values);
-        // console.log(sql);
+
 
         con.query(sql, function (err, result) {
             if (err) console.log(err.message);
@@ -674,10 +669,6 @@ app.post('/viewProducts', function (req, res) {
     } else {
         sql = 'SELECT * FROM products;';
     }
-    //
-    // console.log(conditions);
-    // console.log(values);
-    // console.log(sql);
 
     con.query(sql, function (err, result) {
         if (err) console.log(err.message);
@@ -707,7 +698,6 @@ function sendMissingFieldMessage(req, res) {
     response = {
         "message": "The input you provided is not valid"
     };
-    console.log("COMIGN HERE, YO!");
     res.send(response);
     return;
 }
